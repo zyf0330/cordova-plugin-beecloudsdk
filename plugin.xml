@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-beecloudsdk" version="0.0.1">
+    <name>BeecloudSDK</name>
+    <description>Cordova Beecloud SDK</description>
+    <author>zhaoyunfeng</author>
+    <license>Apache 2.0</license>
+    <keywords>cordova,beecloud</keywords>
+    <info>
+        你需要修改appId、appSecret、wxAppId、sandbox，在Pay.java文件的init中。确保上述信息安全。
+    </info>
+    <js-module src="www/index.js" name="index">
+        <clobbers target="navigator.plugins.beecloud" />
+    </js-module>
+    <platform name="android">
+        <framework src="com.squareup.okhttp3:okhttp:3.2.0" />
+        <source-file src="src/android/Pay.java" target-dir="src/beecloudsdk" />
+        <source-file src="src/android/libs/beecloud-2.3.0.jar" target-dir="libs" />
+        <source-file src="src/android/libs/gson-2.4.jar" target-dir="libs" />
+        <source-file src="src/android/libs/alipaysdk.jar" target-dir="libs" />
+        <source-file src="src/android/libs/alipaysecsdk.jar" target-dir="libs" />
+        <source-file src="src/android/libs/alipayutdid.jar" target-dir="libs" />
+        <source-file src="src/android/libs/libammsdk.jar" target-dir="libs" />
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Pay">
+                <param name="android-package" value="beecloudsdk.Pay" />
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="cn.beecloud.BCMockPayActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            <activity android:name="cn.beecloud.BCWechatPaymentActivity" android:launchMode="singleTop" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            <activity-alias android:name=".wxapi.WXPayEntryActivity" android:exported="true" android:targetActivity="cn.beecloud.BCWechatPaymentActivity" />
+            <activity android:name="com.alipay.sdk.app.H5PayActivity" android:configChanges="orientation|keyboardHidden|navigation" android:exported="false" android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden" />
+        </config-file>
+    </platform>
+</plugin>

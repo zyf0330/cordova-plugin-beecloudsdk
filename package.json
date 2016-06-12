@@ -1,0 +1,28 @@
+{
+	"name": "cordova-plugin-beecloudsdk",
+	"version": "0.0.1",
+	"description": "Cordova Beecloud SDK",
+	"cordova": {
+		"id": "cordova-plugin-beecloudsdk",
+		"platforms": [
+			"android"
+		]
+	},
+	"engines": {
+		"cordovaDependencies": {
+			"0.0.1": { "cordova-android": ">4.0.0" }
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/zyf0330/cordova-plugin-beecloudsdk.git"
+	},
+	"keywords": [
+		"cordova",
+		"beecloud",
+		"ecosystem:cordova",
+		"cordova-android"
+	],
+	"author": "zhaoyunfeng",
+	"license": "Apache 2.0"
+}
