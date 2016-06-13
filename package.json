@@ -1,6 +1,6 @@
 {
 	"name": "cordova-plugin-beecloudsdk",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"description": "Cordova Beecloud SDK",
 	"cordova": {
 		"id": "cordova-plugin-beecloudsdk",
